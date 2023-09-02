@@ -13,12 +13,14 @@
   <h1>funciones</h1>
 
   <script>
-function vamosacodear () {
-  alert("hora de codear");
-  console.log("Hora de codear");
-}
+    function vamosacodear(nombre) {
+      alert("¡Hora de codear, " + nombre + "!");
+        console.log("Hora de codear, " + nombre);
+    }
 
-vamosacodear ();
+    for (let veces = 0; veces < 5; veces++) {
+        vamosacodear('Jose');
+    }
 
 </script>
 </body>
