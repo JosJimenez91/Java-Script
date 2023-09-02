@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>java script</title>
 </head>
 
@@ -11,29 +12,32 @@
 <body>
   <h1>hola</h1>
 
- <script>
-aletr('voy a leer')
+  <script>
+    alert('Voy a leer');
 
+    let cantdehojasparaleer = parseInt(prompt('¿Cuántas hojas vas a leer hoy?'));
 
-  let cantdehojasparaleer = parseInt( ('cuantas hojas vas a leer hoy?'))
-  while (isnall(cantdehojasparaleer) )
-  cantdehojasparaleer = parseint(prompt('eso no es un numero ingresar denuevo'))
-  
-  let cantidaddehojasquelei = 0
+    while (isNaN(cantdehojasparaleer)) {
+        cantdehojasparaleer = parseInt(prompt('Eso no es un número. Ingrésalo de nuevo:'));
+    }
 
+    let cantidaddehojasquelei = 0;
 
-  while (cantidad de hojas que lei < cantdehojasparaleer) {
-alert('lei 10 hojas')
-cantidaddehojasquelei = cantidaddehojasquelei + 10
-alert('ya lei'+ cantidaddehojasquelei + 'hojas' )
-  }
-aletr('termine)')
-  
-    
- </script>
+    while (cantidaddehojasquelei < cantdehojasparaleer) {
+        alert('Leí 10 hojas');
+        cantidaddehojasquelei = cantidaddehojasquelei + 10;
+        alert('Ya he leído ' + cantidaddehojasquelei + ' hojas.');
+    }
+
+    alert('Terminé');
+</script>
 </body>
-
 </html>
+
+
+
+
+
 
 
 
