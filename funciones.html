@@ -13,14 +13,25 @@
   <h1>funciones</h1>
 
   <script>
-    function vamosacodear(nombre) {
-      alert("¡Hora de codear, " + nombre + "!");
-        console.log("Hora de codear, " + nombre);
-    }
+ //   function vamosacodear(nombre) {
+   //   alert("¡Hora de codear, " + nombre + "!");
+     //   console.log("Hora de codear, " + nombre);
+   // }
 
-    for (let veces = 0; veces < 5; veces++) {
-        vamosacodear('Jose');
-    }
+  //  for (let veces = 0; veces < 5; veces++) {
+    //    vamosacodear('Jose');
+   // }
+
+        function aplicardescuento(montoinicial, porcentajededescuento) {
+            const montoadescontar = montoinicial / 100 * porcentajededescuento;
+            const montofinal = montoinicial - montoadescontar;
+            alert("El monto final después del descuento es: " + montofinal);
+        }
+
+        const montoinicial = parseFloat(prompt("Ingrese el monto inicial"));
+        const porcentajededescuento = parseFloat(prompt("Ingrese el porcentaje de descuento"));
+        aplicardescuento(montoinicial, porcentajededescuento);
+
 
 </script>
 </body>
