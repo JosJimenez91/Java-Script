@@ -20,11 +20,59 @@
 
 
 
+// funciones primera parte // 
 
 
+const iva = 1.21;
+
+function aplicardescuento(montoinicial, porcentajededescuento) {
+  const montoadescontar = montoinicial * (porcentajededescuento / 100);
+  const montofinal = (montoinicial - montoadescontar) * iva;
+  alert("El monto final incluyendo IVA es: " + montofinal);
+}
+
+const montoinicial = parseFloat(prompt("Ingrese el monto inicial"));
+const codigodescuento = prompt("Ingrese el código de descuento");
+
+let porcentajededescuento = 0;
+
+if (codigodescuento.toLowerCase() === "cibermonday") {
+  porcentajededescuento = 25;
+  alert("Se aplicará un 25% de descuento (cibermonday).");
+} else {
+  alert("No se aplicará ningún descuento.");
+}
+
+alert("Se le sumará el 21% de IVA.");
+aplicardescuento(montoinicial, porcentajededescuento);
+
+// con un while  logro que me valide que el codigo sea correcto y no mne deje continar hata que no lo sea //
 
 
+const iva = 1.21;
 
+function aplicardescuento(montoinicial, porcentajededescuento) {
+  const montoadescontar = montoinicial * (porcentajededescuento / 100);
+  const montofinal = (montoinicial - montoadescontar) * iva;
+  alert("El monto final incluyendo IVA es: " + montofinal);
+}
+
+const montoinicial = parseFloat(prompt("Ingrese el monto inicial"));
+let codigodescuento = prompt("Ingrese el código de descuento");
+
+let porcentajededescuento = 0;
+
+while (codigodescuento.toLowerCase() !== "cibermonday") {
+  alert("Código incorrecto. Intente nuevamente.");
+  codigodescuento = prompt("Ingrese el código de descuento");
+}
+
+alert("Se aplicará un 25% de descuento (cibermonday).");
+alert("Se le sumará el 21% de IVA.");
+aplicardescuento(montoinicial, porcentajededescuento);
+
+
+// el problema que tengo es que hata que no coloque un codigo no me deja avanzar // 
 
 
 
