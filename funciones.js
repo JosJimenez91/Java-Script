@@ -11,6 +11,7 @@ function aplicardescuento(montoinicial, porcentajededescuento) {
 }
 
 const montoinicial = parseFloat(prompt("Ingrese el monto inicial"));
-const porcentajededescuento = parseFloat(prompt("Ingrese el porcentaje de descuento"));
+const porcentajededescuento = parseFloat(prompt("Ingrse el codigo de descuento"));
+
 alert("se le sumara el 21% del iva");
 aplicardescuento(montoinicial, porcentajededescuento);
