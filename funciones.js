@@ -23,7 +23,6 @@ if (codigodescuento.toLowerCase() === "cibermonday") {
   alert("Código incorrecto. No se aplicará ningún descuento.");
 }
 
-if (codigodescuento.trim() === "" || codigodescuento.toLowerCase() === "cibermonday") {
   alert("Se le sumará el 21% de IVA.");
   aplicardescuento(montoinicial, porcentajededescuento);
-}
+
