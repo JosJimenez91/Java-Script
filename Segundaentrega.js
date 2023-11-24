@@ -28,7 +28,7 @@ while (true) {
     const nombreProducto = productos.find((producto) => producto === productos[indiceProducto]);
 
 
-    window.location.href = `https://matchpointstore.000webhostapp.com/pages/${nombreProducto}.html`;
+    window.location.href = `https://josjimenez91.github.io/PF-JoseJimenez/pages/${nombreProducto}.html`;
     break;
   } else {
     alert("Por favor, ingrese un número válido de producto. Intente nuevamente.");
