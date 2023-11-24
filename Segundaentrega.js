@@ -1,6 +1,5 @@
 function ingresaNombre(nombre) {
-    // Función para validar si la entrada es un nombre (solo letras)
-    return /^[a-zA-Z]+$/.test(nombre);
+  return /^[a-zA-Z]+$/.test(nombre);
   }
   
   const productos = ["raquetas", "bolsos", "accesorios"];
