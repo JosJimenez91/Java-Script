@@ -43,7 +43,7 @@ function mostrarProductos(productosLista) {
     const contenedor = document.getElementById("productos_todos");
     contenedor.innerHTML = "";
   
-    productosLista.forEach(producto => {
+    productosLista.map(producto => {
       const divProducto = document.createElement("div");
       divProducto.classList.add("col-lg-3", "m-3","p-3",);
       divProducto.innerHTML = `
@@ -72,24 +72,26 @@ const miFormulario = Document.getElementById(form)
 miformulario.addEventListener("submit",validarformulario)
 
 function validarformulario(e) {
- e.preventdefault();
+e.preventdefault();
 
- const formulario = e.target;
+const miformulario = e.target;
 
 const mail = document.getElementById("mail").value.trim().toLowerCase();
 const mensaje = document.getElementById("mensaje").value.trim();
-
-  // Validar mensaje
-  if (nombre === "") {
-    alert("Por favor, introduce tu ,mail.");
-    return;
-  }
 
   // Validar mail
   if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
     alert("Por favor, introduce un mail válido.");
     return;
   }
+
+  // Validar mensaje
+  if (mensaje === "") {
+    alert("Por favor, introduce tu ,mail.");
+    return;
+  }
+
+
 alert("gracias por su consulta, la responderemos a la brevedad")
 }
 
