@@ -1,0 +1,59 @@
+/*MEDIA QUERYS*/
+    @media (max-width: 950px)and (max-width:1300px){
+
+        .search input{
+            width: 150px;
+        }
+    /* Ajustes para el menu hamburguesa */  
+
+        #navbarSupportedContent{ 
+            width: 100%; 
+        }
+        
+        .navbar-collapse{
+            position: absolute;
+        }
+    
+        .navbar-nav{
+        width: 100vw;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        padding-bottom: 20px;
+        padding-left: 20px;
+        }
+        .navbar-toggler{
+            z-index: 30000;
+         }
+    
+        .nav-item-with-subpages{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+    
+        .subpages {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+
+        }
+        .search{
+            position: initial;
+            padding-left: 20px;
+            align-self: flex-start;
+            margin-top: 20px;
+            
+        }        
+
+
+     /* Ajustes para el carrito */
+
+.contenedorProducto {
+    display: flex;
+    flex-direction: column
+    }
+
+}
+
+

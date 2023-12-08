@@ -1,0 +1,485 @@
+/*IMPORTAR FUENTES*/
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600&display=swap');
+
+
+/*reset  ccs*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/*ESTILOS GENERALES*/
+
+body{ 
+    min-height: 100vh;
+    background-color: white;
+    display:flex;
+    flex-direction: column;
+    
+}
+
+/* estilos de lista */
+.imagen{
+    align-content: flex-start;
+}
+
+.precio{
+ text-decoration:line-through;
+}
+
+
+.button{
+background-color: darkorange;
+margin: 5px 0px;
+padding: 10px 5px;
+font-size: medium;
+font-weight: bold;   
+align-items: end;
+}
+
+
+#Contacto{
+    color: black;
+    }
+    
+/*HEADER*/
+header{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0%;    
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    background-color: rgb(4, 149, 222);
+}
+
+/*LOGO*/
+header div{
+    width: 110px;
+    height: 110px;
+    margin: none;
+}
+.logo{
+    width: 110px;
+    height: 110px;
+}
+
+/*indice*/
+
+header{
+    position:fixed;
+    z-index:1000;
+	top:0;
+	left:0;
+	width:100%;
+	box-shadow:0px 4px 3px rgba(0,0,0,.5)
+}
+
+header nav{ 
+    display: flex;
+    font-size: 21px;
+    width: 100%;
+    align-items: center;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+header nav ul a {
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    }
+header nav ul li{
+    display: inline-block;
+    position: relative;
+    margin: 0px 5px;
+    border-radius: 3px;
+    padding: 7px 13px;
+    
+}
+
+header nav ul{
+    background-color: rgb(4, 149, 222);
+   }
+
+#navbarSupportedContent{
+    width: 100%;
+}
+
+/* ajuste en el fomrualrio de busqueda */
+.search{
+    position: absolute;
+    right: 0;
+    align-self: center;
+
+}
+
+
+
+/*SUB INDICE*/
+
+header nav ul li ul{
+position: absolute;
+display: none;
+font-size: 15px;
+background-color: rgba(4, 106, 137, 0.744);
+transition: 4s;
+}
+
+header nav ul il ul li{
+}
+
+header nav ul li:hover ul{
+display: block;
+}
+
+.form-control{
+    width: 350px;
+}
+
+.btn{
+    color: white;
+}
+
+    
+/*banner*/
+
+.banner{
+width: 100%;
+min-height: 100vh;
+background-image: url('../img/index.jpg');
+background-repeat: no-repeat;
+background-position: center;
+background-size: cover;
+background-attachment: fixed;
+}
+
+.banner_texto{
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  color: white;
+  font-weight: bold;
+  font-size: medium;
+}
+
+.titulo{
+    text-align: center;
+    font-weight: bold;
+    font-size:xx-large; 
+
+}    
+
+
+    /*MAIN*/
+    main{
+        margin-top: 110px;
+        width:max-content
+}
+
+/*MAIN pagina PRODUCTOS*/
+
+#productos_todos{
+    font-size: medium;
+}
+
+.img_productos{
+    width: 150px;
+    height: 150px;
+}
+
+.producto ul{
+    text-align: left;
+}
+
+.producto{
+     height:min-content;
+}
+
+.precio{
+    font-size: small;
+}
+
+
+.producto h2{
+    color: rgb(0, 42, 116);
+    list-style-type: none;
+    text-align: left;
+    list-style-type: circle;
+    list-style-image: url(../img/comprobado.png);
+    
+    }
+    
+    .producto h3{
+    color: rgb(255, 3, 3);
+    font-size: medium;
+    list-style-type: circle;
+    list-style-image: url(../img/comprobado.png);
+    }
+    
+
+    
+/*MAIN paginas RAQUETAS */
+
+#raquetas{
+    font-size: medium;
+    
+}
+
+#raquetas{
+     height: 100%;
+}
+
+.raquetas{
+    color: black;   
+}
+
+.img_raquetas{
+    width: 150px;
+    height: 150px;
+}
+
+
+.raquetas h2{
+    color: rgb(0, 42, 116);
+    list-style-type: none;
+    text-align: left;
+    list-style-type: circle;
+    list-style-image: url(../img/comprobado.png);
+}
+.raquetas h3{
+    color: rgb(255, 3, 3);
+    list-style-type: circle;
+    list-style-image: url(../img/comprobado.png);
+}
+
+.Boton{
+}
+
+
+/*MAIN Pagina BOLSOS*/
+
+
+#bolsos{
+    font-size: medium;
+}
+
+.row{
+    padding: 0%;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.bolso{
+    color: black;
+
+}
+
+.img_bolso{
+    width: 150px;
+    height: 150px;
+}
+
+.bolso h2{
+    color: rgb(0, 42, 116);
+    list-style-type: none;
+    text-align: left;
+    list-style-type: circle;
+    list-style-image: url(../img/comprobado.png);
+}
+
+    
+/*MAIN pagina ACCESORIOS*/
+
+#accesorios{
+    display: flex;
+    flex-direction: row;
+}
+
+.accesorios{
+    color: black;
+
+}
+
+.img_accesorios{
+    width: 150px;
+    height: 150px;
+}
+
+.accesorios h2{
+    color: rgb(0, 42, 116);
+    list-style-type: none;
+    text-align: left;
+    list-style-type: circle;
+    list-style-image: url(../img/comprobado.png);
+}
+
+
+/*MAIN pagina Carrito*/
+
+
+.carrito h1{
+    grid-area: titulo;
+}
+
+#carrito{
+    width: 90%;
+    grid-area: carrito;
+    }
+
+.contenedorProducto{
+    padding: 20px 50px;
+    margin: 10px auto;
+    border: 2px solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: black;
+
+}
+
+#carrito .contenedorData,
+#carrito .contenedorPrice,
+#carrito .contenedorBotones,
+#carrito .contenedorProducto img{
+    display: inline-block;
+    vertical-align: middle;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content:left
+}
+.contenedorPrice h3{
+    font-size: medium;
+}
+
+.contenedorBotones{
+display: flex;
+flex-direction: column;
+}
+
+.container{
+    padding-top: 40px;
+}
+
+#carrito .contenedorBotones button{
+    margin-bottom: 10px;
+}
+
+#carrito .contenedorBotones .contenedorBotones__eliminar {
+    background-color: rgb(219, 28, 28);
+    border: 2px solid rgb(0, 0, 0);
+    width: 100px;
+    height: 35px;
+}
+
+aside{
+    grid-area: precio;
+    width: 90%;
+    margin: 10px 0;
+    border: 2px solid;
+}
+
+aside .card{
+    padding: 20px;
+    color: black;
+}
+
+.pagar{
+    background-color: rgb(203, 114, 12);
+    border: 1px solid rgb(0, 0, 0);
+    width: 100px;
+    height: 35px;
+}
+    /*MENU HAMBURGUESA*/
+
+
+/*MAIN pagina OFERTAS*/
+
+
+
+/*FOOTER*/
+
+.footer{
+    background-color: rgb(4, 149, 222);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: auto;    
+}
+.logo_footer{
+    width: 80px;
+    height: 80px;
+}
+
+footer div ol p{
+    text-decoration: none;
+    color: white;
+}
+footer div ol a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+/*MEDIA QUERYS*/
+
+
+
+@media (min-width:950px) and (max-width: 1350px) {
+    .search input{
+        width: 150px;
+    }
+}
+
+
+/* Ajustes para el menu hamburguesa */
+
+@media (max-width: 950px) {
+
+    .navbar-collapse{
+        position: absolute;
+
+    }
+    .navbar-nav{
+    width: 100vw;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    }
+    .navbar-toggler{
+        z-index: 30000;
+
+    }
+
+    .nav-item-with-subpages{
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .subpages {
+        position: inherit;
+    }
+    .search{
+        position: initial;
+        padding-left: 20px;
+        align-self: flex-start;
+    }
+}

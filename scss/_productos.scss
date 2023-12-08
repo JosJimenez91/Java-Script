@@ -1,0 +1,56 @@
+/*MAIN pagina PRODUCTOS*/
+
+#productos_todos{
+    font-size: medium;
+    display: flex;
+    flex-direction: row;
+   
+
+    .card-m1 {
+        display: flex;
+        flex-direction: row;
+      }
+
+      .card {
+        width: 200px;
+        height: 200px;
+      }
+    .card-img-top{
+        width: 150px;
+        height: 150px;
+      }
+
+    .producto{
+        height:min-content;
+        h2{
+            color: rgb(7, 7, 7);
+            list-style-type: none;
+            text-align: left;
+            list-style-type: circle;
+            list-style-image: url(../img/comprobado.png);
+            }
+
+.img_productos{
+    width: 150px;
+    height: 150px;
+}
+
+.datos{
+    min-height: 180px;
+}
+
+ul{
+    text-align: left;
+    
+
+}
+
+p{
+    font-size: small;
+}
+
+}
+  .col-lg-4 {
+    display: flex;
+  }
+}
