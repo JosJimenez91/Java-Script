@@ -63,22 +63,20 @@
 <li><a href="#Formulario">Contacto</a> </li>
 
 <!--FORMULARIO-->
+
 <main class="container">
   <div class="consulta">
-  <h1>Dejanos tu Mensaje</H1> 
-  <form id="contacto" class="formulario">
-     <div>
-        <label for="Mail">Mail:</label>
-     <input id="mail" type="text">
-  </div>
-  <div class="mensaje">
-    <label for="Mensaje">Escriba su Consulta</label>
+    <h1>Dejanos tu Mensaje</h1> 
+    <form id="contacto" class="formulario">
       <div>
-        </div>
-        <textarea id="mensaje" cols="40" rows="10"></textarea>
-    <input id="enviar" class="button" type="submit" value="Enviar">
+        <label for="mail">Mail:</label>
+        <input id="mail" name="mail" type="text">
       </div>
-    </div>
+      <div class="mensaje">
+        <label for="mensaje">Escriba su Consulta</label>
+        <textarea id="mensaje" name="mensaje" cols="40" rows="10"></textarea>
+        <input id="enviar" name="enviar" class="button" type="submit" value="Enviar">
+      </div>
     </form>
   </div>    
 </main>
@@ -99,7 +97,7 @@
 </footer>
 
 
-<script src="./JS/3eraEntrega.js"></script> 
+
 
 </body>
 </html>

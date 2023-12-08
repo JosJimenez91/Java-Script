@@ -13,7 +13,7 @@ function validarProducto(productosLista) {
     if (productosLista.nombre === "") {
       throw new Error("El nombre del producto no puede estar vacío");
     }
-    if (typeof producto.valor !== "number") {
+    if (typeof productosLista.valor !== "number") {
       throw new Error("El precio del producto debe ser un número");
     }
 }
@@ -45,11 +45,11 @@ function mostrarProductos(productosLista) {
   
     productosLista.map(producto => {
       const divProducto = document.createElement("div");
-      divProducto.classList.add("col-lg-3", "m-3","p-3",);
+      divProducto.classList.add("col-lg-3", "m-3","p-3");
       divProducto.innerHTML = `
         <div class="card-body",>
           <img src="${producto.img}" class="card-img-top", "rounded mx-auto d-block"  alt="Imagen de ${producto.nombre}">
-          <div class="Descripcion>
+          <div class="descripcion>
           <h2 class="card-title text-primary">${producto.nombre}</h2>
           <p class="card-text">${producto.descripcion}</p>
           <p class="card-text text-danger">Valor:$ ${producto.valor}</p>
@@ -71,14 +71,17 @@ function mostrarProductos(productosLista) {
 const miFormulario = document.getElementById("contacto");
 const botonEnviar = document.getElementById("enviar");
 
-botonEnviar.addEventListener("click", validarformulario);
-miformulario.addEventListener("submit",validarformulario);
+console.log(miFormulario);
+console.log(botonEnviar);
 
+
+botonEnviar.addEventListener("submit", validarformulario);
+miFormulario.addEventListener("submit", validarformulario);
 
 function validarformulario(e) {
   e.preventDefault();
 
-  const miFormulario = e.target;
+const miFormulario = e.target;
 
 const mail = document.getElementById("mail").value.trim().toLowerCase();
 const mensaje = document.getElementById("mensaje").value.trim();
@@ -96,6 +99,7 @@ const mensaje = document.getElementById("mensaje").value.trim();
     return;
   }
 
+console.log("formulario valido");
 
 alert("gracias por su consulta, la responderemos a la brevedad")
 }
