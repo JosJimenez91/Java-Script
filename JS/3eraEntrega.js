@@ -68,13 +68,17 @@ function mostrarProductos(productosLista) {
 
 // formulario // 
 
-const miFormulario = Document.getElementById(form)
-miformulario.addEventListener("submit",validarformulario)
+const miFormulario = document.getElementById("contacto");
+const botonEnviar = document.getElementById("enviar");
+
+botonEnviar.addEventListener("click", validarformulario);
+miformulario.addEventListener("submit",validarformulario);
+
 
 function validarformulario(e) {
-e.preventdefault();
+  e.preventDefault();
 
-const miformulario = e.target;
+  const miFormulario = e.target;
 
 const mail = document.getElementById("mail").value.trim().toLowerCase();
 const mensaje = document.getElementById("mensaje").value.trim();
@@ -83,11 +87,12 @@ const mensaje = document.getElementById("mensaje").value.trim();
   if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
     alert("Por favor, introduce un mail válido.");
     return;
-  }
+  } 
+  
 
   // Validar mensaje
   if (mensaje === "") {
-    alert("Por favor, introduce tu ,mail.");
+    alert("Por favor, introduce tu mensaje.");
     return;
   }
 
