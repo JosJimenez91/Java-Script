@@ -18,11 +18,13 @@ function validarProducto(productosLista) {
     }
 }
 
+
+  //buscador//
 const productos = productosLista;
 
 function filtrarProductos(){
     const textoBusqueda = document.getElementById("buscadorProductos").value.toLowerCase();
-    debugger
+    
     const productosFiltrados = productos.filter(producto => 
         producto.nombre.toLowerCase().includes(textoBusqueda)
     );
@@ -62,8 +64,34 @@ function mostrarProductos(productosLista) {
   }
 
   mostrarProductos(productosLista); 
-  //buscador//
 
+
+// formulario // 
+
+const miFormulario = Document.getElementById(form)
+miformulario.addEventListener("submit",validarformulario)
+
+function validarformulario(e) {
+ e.preventdefault();
+
+ const formulario = e.target;
+
+const mail = document.getElementById("mail").value.trim().toLowerCase();
+const mensaje = document.getElementById("mensaje").value.trim();
+
+  // Validar mensaje
+  if (nombre === "") {
+    alert("Por favor, introduce tu ,mail.");
+    return;
+  }
+
+  // Validar mail
+  if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+    alert("Por favor, introduce un mail válido.");
+    return;
+  }
+alert("gracias por su consulta, la responderemos a la brevedad")
+}
 
 
 
