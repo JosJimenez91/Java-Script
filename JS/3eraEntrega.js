@@ -1,4 +1,5 @@
 // crear el array de objetos //
+let carrito = [];
 
 const productosLista = [
     { nombre: "Head Speed Mp", valor: 95000, descripcion: "Peso 300gr Tamaño de cabeza 100 inch Patron de cuerdas 16/19 Balance 300mm", img: "../imagenes/head speed.webp"},
@@ -10,7 +11,7 @@ const productosLista = [
 ];
 
 function validarProducto(productosLista) {
-    if (productosLista.nombre === "") {
+    if (productosLista.nombre === "") { 
       throw new Error("El nombre del producto no puede estar vacío");
     }
     if (typeof productosLista.valor !== "number") {
@@ -18,8 +19,24 @@ function validarProducto(productosLista) {
     }
 }
 
+// Carrito //
 
-  //buscador//
+function agregarAlCarrito(nombre, valor) {
+  // Actualizar el modal con los detalles del producto
+  document.getElementById("productoNombre").innerText = `Nombre: ${nombre}`;
+  document.getElementById("productoValor").innerText = `Valor: $${valor}`;
+
+  // Mostrar el modal
+  const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+  myModal.show();
+}
+
+function finalizarCompra() {
+const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+myModal.hide();
+}
+
+//BUSCAR PRODUCTOS//
 const productos = productosLista;
 
 function filtrarProductos(){
@@ -30,11 +47,8 @@ function filtrarProductos(){
     );
     mostrarProductos(productosFiltrados);   
   }
- 
+ //EVENTO PARA LA ENTRADA DEL USUARIO //
   document.getElementById("buscadorProductos").addEventListener("input", filtrarProductos);
-
-
-
 
 
 
@@ -54,15 +68,14 @@ function mostrarProductos(productosLista) {
           <p class="card-text">${producto.descripcion}</p>
           <p class="card-text text-danger">Valor:$ ${producto.valor}</p>
           <div class="d-grid gap-2">
-            <button class="btn btn-warning p-2" onclick="agregarAlCarrito('${producto.nombre}', ${producto.valor})">Comprar</button>
-          </div>
+          <button class="btn btn-warning p-2" onclick="agregarAlCarrito('${producto.nombre}', ${producto.valor})">Comprar</button>
         </div>
         </div>
       `;
       contenedor.append(divProducto);
     });
   }
-
+// MOSTRAR PRODUCTOS //
   mostrarProductos(productosLista); 
 
 
