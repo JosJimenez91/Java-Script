@@ -97,13 +97,13 @@ header nav .search {
 .banner {
   width: 100%;
   min-height: 100vh;
-  background-image: url("../img/index.jpg");
+  background-image: url("../imagenes/index.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
 }
-.banner .banner_texto {
+.banner_texto {
   text-align: center;
   position: absolute;
   top: 50%;
@@ -112,7 +112,7 @@ header nav .search {
   font-weight: bold;
   font-size: medium;
 }
-.banner .titulo {
+.titulo {
   text-align: center;
   font-weight: bold;
   font-size: xx-large;
