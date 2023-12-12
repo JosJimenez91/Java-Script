@@ -19,22 +19,66 @@ function validarProducto(productosLista) {
     }
 }
 
-// Carrito //
+// CARRITO //
+
 
 function agregarAlCarrito(nombre, valor) {
-  // Actualizar el modal con los detalles del producto
-  document.getElementById("productoNombre").innerText = `Nombre: ${nombre}`;
-  document.getElementById("productoValor").innerText = `Valor: $${valor}`;
+carrito.push({nombre,valor});
 
-  // Mostrar el modal
+//sumar productos al carrito//
+const productoExistente = carrito.find(producto => producto.nombre === nombre);
+
+  if (productoExistente) {
+    // Si el producto ya está en el carrito, incrementar la cantidad//
+    productoExistente.cantidad++;
+  } else {
+    // Si el producto no está en el carrito, agregarlo con cantidad 1//
+    carrito.push({ nombre, valor, cantidad: 1 });
+  }
+  
+
+
+  // Actualizar el contenido del modal de carrito//
+  actualizarlistaCarrito();
+
+
+//mostrar el modal//
+if (carrito.length > 0) {
   const myModal = new bootstrap.Modal(document.getElementById('myModal'));
   myModal.show();
 }
-
-function finalizarCompra() {
-const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-myModal.hide();
 }
+
+// Actualizar carrito//
+
+function actualizarlistaCarrito() {
+  const listaCarrito = document.getElementById("listaCarrito");
+  listaCarrito.innerHTML = "";
+
+//agrega productos al carrito//
+
+  carrito.map(producto => {
+    const productoItem = document.createElement("li");
+    productoItem.classList.add("list-group-item")
+    productoItem.innerHTML = `<p>${producto.nombre} - Cantidad: ${producto.cantidad} - Valor: $${producto.valor * producto.cantidad}</p>`;
+    listaCarrito.appendChild(productoItem);
+  });
+}
+
+// finalizar la compra//
+function finalizarCompra() {
+
+ // Limpiar el carrito después de finalizar la compra//
+  carrito = [];
+
+  // Cerrar el modal después de finalizar la compra//
+  const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+  myModal.hide();
+
+  // Actualizar el contenido del modal de carrito después de finalizar la compra//
+  actualizarlistaCarrito ();
+}
+
 
 //BUSCAR PRODUCTOS//
 const productos = productosLista;
@@ -79,43 +123,7 @@ function mostrarProductos(productosLista) {
   mostrarProductos(productosLista); 
 
 
-// formulario // 
 
-const miFormulario = document.getElementById("contacto");
-const botonEnviar = document.getElementById("enviar");
-
-console.log(miFormulario);
-console.log(botonEnviar);
-
-
-botonEnviar.addEventListener("submit", validarformulario);
-miFormulario.addEventListener("submit", validarformulario);
-
-function validarformulario(e) {
-  e.preventDefault();
-
-const miFormulario = e.target;
-
-const mail = document.getElementById("mail").value.trim().toLowerCase();
-const mensaje = document.getElementById("mensaje").value.trim();
-
-  // Validar mail
-  if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-    alert("Por favor, introduce un mail válido.");
-    return;
-  } 
-  
-
-  // Validar mensaje
-  if (mensaje === "") {
-    alert("Por favor, introduce tu mensaje.");
-    return;
-  }
-
-console.log("formulario valido");
-
-alert("gracias por su consulta, la responderemos a la brevedad")
-}
 
 
 
