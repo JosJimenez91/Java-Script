@@ -10,44 +10,35 @@ const productosLista = [
     { nombre: "Bolso Wilson", valor: 140000, descripcion: "Peso 2kg Altura 35cm Ancho 35cm Cantidad de raquetas 6", img: "../imagenes/bolso wilson.jpg" },
 ];
 
-function validarProducto(productosLista) {
-    if (productosLista.nombre === "") { 
+function validarProductos(productosLista) {
+  productosLista.forEach(producto => {
+    if (producto.nombre === "") {
       throw new Error("El nombre del producto no puede estar vacío");
     }
-    if (typeof productosLista.valor !== "number") {
-      throw new Error("El precio del producto debe ser un número");
+    if (typeof producto.valor !== "number" || isNaN(producto.valor)) {
+      throw new Error("El precio del producto debe ser un número válido");
     }
+  });
 }
 
 // CARRITO //
 
 
 function agregarAlCarrito(nombre, valor) {
-carrito.push({nombre,valor});
 
 //sumar productos al carrito//
 const productoExistente = carrito.find(producto => producto.nombre === nombre);
 
-  if (productoExistente) {
-    carrito.push({ nombre, valor, cantidad: 1 });
-    // Si el producto ya está en el carrito, incrementar la cantidad//
-    
-  } else {
-    // Si el producto no está en el carrito, agregarlo con cantidad 1//
-  productoExistente.cantidad++;
-  }
-  
-
-
-  // Actualizar el contenido del modal de carrito//
-  actualizarlistaCarrito();
-
-
-//mostrar el modal//
-if (carrito.length > 0) {
-  const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-  myModal.show();
+if (productoExistente) {
+  productoExistente.cantidad++;  // Incrementar la cantidad si el producto ya existe
+} else {
+  carrito.push({ nombre, valor, cantidad: 1 });  // Agregar un nuevo producto si no existe
 }
+
+
+// Actualizar el contenido del modal de carrito//
+actualizarlistaCarrito();
+
 }
 
 // Actualizar carrito//
@@ -62,18 +53,25 @@ let totalCarrito = 0;
 
   //agrega productos al carrito//
 
-  carrito.map(producto => {
-    const productoItem = document.createElement("li");
-    productoItem.classList.add("list-group-item")
-    productoItem.innerHTML = `<p>${producto.nombre} - Cantidad: ${producto.cantidad} - Valor: $ ${producto.valor * producto.cantidad}</p>`;
-    listaCarrito.appendChild(productoItem);
+carrito.forEach(producto => {
+ const productoItem = document.createElement("li");
+ productoItem.classList.add("list-group-item")
+ productoItem.innerHTML =`<p>${producto.nombre} - Cantidad: ${producto.cantidad} - Valor: $ ${producto.valor * producto.cantidad}</p>`;
+ listaCarrito.appendChild(productoItem);
 
 //sumar el total y productos//
-    totalCarrito += producto.valor * producto.cantidad;
+totalCarrito +=  + producto.valor * producto.cantidad;
   });
 
 //mostrar el total//
-  totalCarritoElement.innerText = `Total: $${totalCarrito}`;
+totalCarritoElement.innerText = `Total: $${totalCarrito}`;
+
+//mostrar el modal//
+if (carrito.length > 0) {
+  const myModal = new bootstrap.Modal(document.getElementById('myModal'));
+  myModal.show();
+}
+
 }
 
 // finalizar la compra//
