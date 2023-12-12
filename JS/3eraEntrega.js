@@ -131,20 +131,31 @@ function mostrarProductos(productosLista) {
 // MOSTRAR PRODUCTOS //
   mostrarProductos(productosLista); 
 
+// formulario //
 
+const formulario = document.getElementById("contacto");
+formulario.addEventListener("submit", validarFormularioContacto);
 
+function validarFormularioContacto(e) {
+  e.preventDefault();
 
+  const mail = document.getElementById("mail").value.trim().toLowerCase();
+  const mensaje = document.getElementById("mensaje").value.trim();
 
+  // Validar mensaje
+  if (mensaje === "") {
+    alert("Por favor, introduce tu mensaje.");
+    return;
+  }
 
+  // Validar mail
+  if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
+    alert("Por favor, introduce un mail válido.");
+    return;
+  }
 
-
-
-
-
-
-
-
-
+  alert("Gracias por su consulta, la responderemos a la brevedad.");
+}
 
 
 
