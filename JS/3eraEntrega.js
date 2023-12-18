@@ -5,9 +5,18 @@ const productosLista = [
     { nombre: "Head Speed Mp", valor: 95000, descripcion: "Peso 300gr Tamaño de cabeza 100 inch Patron de cuerdas 16/19 Balance 300mm", img: "../imagenes/head speed.webp"},
     { nombre: "Head Extreme Mp", valor: 90000, descripcion: "Peso 300gr Tamaño de cabeza 100 inch Patron de cuerdas 16/19 Balance 320mm", img: "../imagenes/head extreme.jpg" },
     { nombre: "Head Radical Mp", valor: 110000, descripcion: "Peso 300gr Tamaño de cabeza 100 inch Patron de cuerdas 16/19 Balance 320mm", img: "../imagenes/head radical.jpg" },
+    { nombre: "Babolat Pure Aero", valor: 92000, descripcion: "Peso 300gr Tamaño de cabeza 100 inch Patron de cuerdas 16/19 Balance 320mm", img: "../imagenes/babolat puire aero.jpg" },
+    { nombre: "Wilson Pro staff", valor: 120000, descripcion: "Peso 290gr Tamaño de cabeza 97 inch Patron de cuerdas 16/19 Balance 325mm", img: "../imagenes/wilson pro staff.jpg" },
+    { nombre: "Wilson Clash", valor: 100000, descripcion: "Peso 310gr Tamaño de cabeza 100 inch Patron de cuerdas 16/19 Balance 310mm", img: "../imagenes/wilson clash.jpg" },
+    { nombre: "Bolso Yonex", valor: 120000, descripcion: "Peso 2kg Altura 35cm Ancho 35cm Cantidad de raquetas 6", img: "../imagenes/bolso yonex.jpg" },
     { nombre: "Bolso Babolat", valor: 130000, descripcion: "Modelo Pure Aero Peso 1,600kg Altura 32cm Ancho 320cm", img: "../imagenes/bolso babolat.jpg" },
     { nombre: "Bolso Head Novak", valor: 150000, descripcion: "Peso 2kg Altura 35cm Ancho 35cm Cantidad de raquetas 6", img: "../imagenes/bolos nole.jpg" },
     { nombre: "Bolso Wilson", valor: 140000, descripcion: "Peso 2kg Altura 35cm Ancho 35cm Cantidad de raquetas 6", img: "../imagenes/bolso wilson.jpg" },
+    { nombre: "Tubo De Pelotas Prince", valor: 3500, descripcion: "Marca Prince Modelo NX Tour Pro Cantidad 3 pelotas", img: "../imagenes/tubo pelotas.jpg" },
+    { nombre: "Muñequera Nike", valor: 5600, descripcion: "Marca Nike Modelo Swoosh Cantidad 2", img: "../imagenes/muñequeras.jpg" },
+    { nombre: "Cubregrip Wilson", valor: 3200, descripcion: "Marca Wilson Modelo Ultra Wrap Comfort Cantidad 3", img: "../imagenes/cubre grip.jpg" },
+    { nombre: "Vincha Hydrogen", valor: 10000, descripcion: "Marca Hydrogen Material Algodón", img: "../imagenes/vincha.jpg" },
+    { nombre: "Antivibrador Head", valor: 500, descripcion: "Anti vibrador Head Logo", img: "../imagenes/anti vibrador.jpg" },
 ];
 
 function validarProductos(productosLista) {
@@ -115,10 +124,10 @@ function mostrarProductos(productosLista) {
       divProducto.classList.add("col-lg-3", "m-3","p-3");
       divProducto.innerHTML = `
         <div class="card-body",>
-          <img src="${producto.img}" class="card-img-top", "rounded mx-auto d-block"  alt="Imagen de ${producto.nombre}">
+          <img src="${producto.img}" class="img" , "card-img-top", "rounded mx-auto d-block" , alt="Imagen de ${producto.nombre}">
           <div class="descripcion>
-          <h2 class="card-title text-primary">${producto.nombre}</h2>
-          <p class="card-text">${producto.descripcion}</p>
+          <h2 class="titulo" , "card-title text-primary" ,>${producto.nombre}</h2>
+          <p class="descripcion" , "card-text">${producto.descripcion}</p>
           <p class="card-text text-danger">Valor:$ ${producto.valor}</p>
           <div class="d-grid gap-2">
           <button class="btn btn-warning p-2" onclick="agregarAlCarrito('${producto.nombre}', ${producto.valor})">Comprar</button>
@@ -131,10 +140,15 @@ function mostrarProductos(productosLista) {
 // MOSTRAR PRODUCTOS //
   mostrarProductos(productosLista); 
 
+
 // formulario //
 
 const formulario = document.getElementById("contacto");
+const btnEnviar = document.getElementById("enviar");
+
 formulario.addEventListener("submit", validarFormularioContacto);
+
+btnEnviar.addEventListener("click", mostrarAlert);
 
 function validarFormularioContacto(e) {
   e.preventDefault();
@@ -150,11 +164,13 @@ function validarFormularioContacto(e) {
 
   // Validar mail
   if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-    alert("Por favor, introduce un mail válido.");
+    alert("Por favor, introduce un correo electrónico válido.");
     return;
   }
+}
 
-  alert("Gracias por su consulta, la responderemos a la brevedad.");
+function mostrarAlert() {
+  alert("Gracias por tu consulta, la responderemos a la brevedad.");
 }
 
 

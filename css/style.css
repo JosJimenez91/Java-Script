@@ -17,6 +17,21 @@ body main {
   margin-top: 110px;
 }
 
+.img {
+    width: 200px;
+    height: 200px;
+}
+.titulo h2{
+    color: rgb(1, 94, 255);
+}
+
+.descripcion p {
+  color: rgb(7, 7, 7);
+  list-style-type: none;
+  text-align: left;
+  list-style-type: circle;
+}
+
 /*HEADER*/
 header {
   display: flex;
@@ -156,7 +171,7 @@ header nav .search {
   list-style-type: circle;
   list-style-image: url(../img/comprobado.png);
 }
-#productos_todos .producto .img_productos {
+#productos_todos .producto .img {
   width: 150px;
   height: 150px;
 }
