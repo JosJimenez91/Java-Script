@@ -1,7 +1,7 @@
 // crear el array de objetos //
 let carrito = [];
 
-
+// Función para obtener la lista de productos desde el archivo JSON //
 function obtenerProductos() {
   return new Promise((resolve, reject) => {
     fetch("../JSON/productosLista.json")
@@ -16,9 +16,23 @@ function obtenerProductos() {
   });
 }
 
+// Función para obtener el carrito desde Local Storage
+function obtenerCarritoDesdeLocalStorage() {
+  const carritoGuardado = localStorage.getItem("carrito");
+  return carritoGuardado ? JSON.parse(carritoGuardado) : [];
+}
+
+// Función para guardar el carrito en Local Storage
+function guardarCarritoEnLocalStorage() {
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
 // Función principal
 async function main() {
   try {
+    // Obtener el carrito desde Local Storage
+    carrito = obtenerCarritoDesdeLocalStorage();
+
     // Obtener la lista de productos
     const productosLista = await obtenerProductos();
 
@@ -32,8 +46,7 @@ async function main() {
 // Llamar a la función principal
 main();
 
-
-
+// Validar productos en la lista
 function validarProductos(productosLista) {
   productosLista.forEach(producto => {
     if (producto.nombre === "") {
@@ -47,7 +60,7 @@ function validarProductos(productosLista) {
 
 // CARRITO //
 
-
+// Función para agregar productos al carrito
 function agregarAlCarrito(nombre, valor) {
 
 //sumar productos al carrito//
@@ -59,13 +72,16 @@ if (productoExistente) {
   carrito.push({ nombre, valor, cantidad: 1 });  // Agregar un nuevo producto si no existe
 }
 
+  // Actualizar Local Storage
+  guardarCarritoEnLocalStorage();
+
 
 // Actualizar el contenido del modal de carrito//
 actualizarlistaCarrito();
 
 }
 
-// Actualizar carrito//
+// Actualizar carrito  y en Local Storage //
 
 function actualizarlistaCarrito() {
   const listaCarrito = document.getElementById("listaCarrito");
@@ -75,7 +91,7 @@ function actualizarlistaCarrito() {
 
 let totalCarrito = 0;
 
-  //agrega productos al carrito//
+//agrega productos al carrito//
 
 carrito.forEach(producto => {
  const productoItem = document.createElement("li");
@@ -96,26 +112,32 @@ if (carrito.length > 0) {
   myModal.show();
 }
 
+  // Actualizar Local Storage
+  guardarCarritoEnLocalStorage();
+
 }
 
-// finalizar la compra//
+// Función para finalizar la compra y limpiar el carrito
 function finalizarCompra() {
-
- // Limpiar el carrito después de finalizar la compra//
+  // Limpiar el carrito
   carrito = [];
 
-  // Cerrar el modal después de finalizar la compra//
+  // Actualizar Local Storage
+  guardarCarritoEnLocalStorage();
+
+  // Cerrar el modal después de finalizar la compra
   const myModal = new bootstrap.Modal(document.getElementById('myModal'));
   myModal.hide();
 
-  // Actualizar el contenido del modal de carrito después de finalizar la compra//
-  actualizarlistaCarrito ();
+  // Actualizar el contenido del modal de carrito después de finalizar la compra
+  actualizarListaCarrito();
 }
+
 
 
 //BUSCAR PRODUCTOS//
 
-// Función para filtrar productos
+// Función para filtrar productos// 
 async function filtrarProductos() {
   try {
     // Obtén la lista completa de productos
@@ -138,9 +160,6 @@ async function filtrarProductos() {
 
 // Evento para la entrada del usuario
 document.getElementById("buscadorProductos").addEventListener("input", filtrarProductos);
-
-
-
 
 
 // mostrar productos //
