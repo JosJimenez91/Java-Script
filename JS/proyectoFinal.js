@@ -58,13 +58,14 @@ function validarProductos(productosLista) {
   });
 }
 
+
 // CARRITO //
 
-// Función para agregar productos al carrito
-function agregarAlCarrito(nombre, valor) {
+// Función para agregar productos al carrito//
+function agregarAlCarrito(nombre, valor){
+  //sumar productos al carrito//
 
-//sumar productos al carrito//
-const productoExistente = carrito.find(producto => producto.nombre === nombre);
+  const productoExistente = carrito.find(producto => producto.nombre === nombre);
 
 if (productoExistente) {
   productoExistente.cantidad++;  // Incrementar la cantidad si el producto ya existe
@@ -79,6 +80,7 @@ if (productoExistente) {
 // Actualizar el contenido del modal de carrito//
 actualizarlistaCarrito();
 
+mostrarAlert("Producto agregado al carrito", "info");
 }
 
 // Actualizar carrito  y en Local Storage //
@@ -117,6 +119,7 @@ if (carrito.length > 0) {
 
 }
 
+
 // Función para finalizar la compra y limpiar el carrito
 function finalizarCompra() {
   // Limpiar el carrito
@@ -130,7 +133,19 @@ function finalizarCompra() {
   myModal.hide();
 
   // Actualizar el contenido del modal de carrito después de finalizar la compra
-  actualizarListaCarrito();
+  actualizarlistaCarrito();
+
+  // Mostrar notificación Toastify
+  Toastify({
+    text: "Compra finalizada",
+    duration: 3000,  // Duración en milisegundos
+    close: true,
+    gravity: "bottom",  // Puedes cambiar la posición según tus preferencias
+    positionLeft: false,
+    backgroundColor: "#4CAF50",  // Puedes personalizar el color de fondo
+    stopOnFocus: true,
+    onClick: function () {}  // Puedes añadir una función de clic si es necesario
+  }).showToast();
 }
 
 
@@ -143,12 +158,12 @@ async function filtrarProductos() {
     // Obtén la lista completa de productos
     const productosLista = await obtenerProductos();
 
-    // Obtén el texto de búsqueda desde el campo de entrada
+    // Obtén el texto de búsqueda desde el campo de entrada    
     const textoBusqueda = document.getElementById("buscadorProductos").value.toLowerCase();
 
     // Filtra los productos basándote en el texto de búsqueda
     const productosFiltrados = productosLista.filter(producto =>
-      producto.nombre.toLowerCase().includes(textoBusqueda)
+    producto.nombre.toLowerCase().includes(textoBusqueda)
     );
 
     // Muestra los productos filtrados en la interfaz
@@ -169,7 +184,7 @@ function mostrarProductos(productosLista) {
   
     productosLista.map(producto => {
       const divProducto = document.createElement("div");
-      divProducto.classList.add("col-lg-3", "m-3","p-3");
+      divProducto.classList.add("col-lg-3", "m-3","p-3"); 
       divProducto.innerHTML = `
         <div class="card-body",>
           <img src="${producto.img}" class="img" , "card-img-top", "rounded mx-auto d-block" , alt="Imagen de ${producto.nombre}">
@@ -185,52 +200,41 @@ function mostrarProductos(productosLista) {
       contenedor.append(divProducto);
     });
   }
-// MOSTRAR PRODUCTOS //
-  mostrarProductos(productosLista); 
 
 
-// Formulario
+//Formulario//
+
 const formulario = document.getElementById("contacto");
-const btnEnviar = document.getElementById("enviar");
 
 formulario.addEventListener("submit", validarFormularioContacto);
 
-btnEnviar.addEventListener("click", mostrarAlert);
-
 function validarFormularioContacto(e) {
-  e.preventDefault();
+e.preventDefault();
 
   const mail = document.getElementById("mail").value.trim().toLowerCase();
   const mensaje = document.getElementById("mensaje").value.trim();
 
   if (mensaje === "") {
-    alert("Por favor, introduce tu mensaje.");
+    mostrarAlert("Por favor, introduce tu mensaje.", "error");
     return;
   }
 
   if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-    alert("Por favor, introduce un correo electrónico válido.");
+    mostrarAlert("Por favor, introduce un correo electrónico válido.", "error");
     return;
   }
+
+  mostrarAlert("Gracias por tu consulta, la responderemos a la brevedad.", "success");
+
 }
 
-function mostrarAlert() {
-  alert("Gracias por tu consulta, la responderemos a la brevedad.");
+function mostrarAlert(mensaje, tipo) {
+  Toastify({
+    duration: 1000,
+    text: mensaje,
+    className: tipo,
+    style: {
+      background: tipo === "success" ? "linear-gradient(to right, #00b09b, #96c93d)" : "linear-gradient(to right, #FF6F61, #9E5D49)",
+    },
+  }).showToast();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
