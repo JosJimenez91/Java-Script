@@ -201,33 +201,7 @@ function mostrarProductos(productosLista) {
     });
   }
 
-
-//Formulario//
-
-const formulario = document.getElementById("contacto");
-
-formulario.addEventListener("submit", validarFormularioContacto);
-
-function validarFormularioContacto(e) {
-e.preventDefault();
-
-  const mail = document.getElementById("mail").value.trim().toLowerCase();
-  const mensaje = document.getElementById("mensaje").value.trim();
-
-  if (mensaje === "") {
-    mostrarAlert("Por favor, introduce tu mensaje.", "error");
-    return;
-  }
-
-  if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-    mostrarAlert("Por favor, introduce un correo electrónico válido.", "error");
-    return;
-  }
-
-  mostrarAlert("Gracias por tu consulta, la responderemos a la brevedad.", "success");
-
-}
-
+//funcion mostrarl alerta //
 function mostrarAlert(mensaje, tipo) {
   Toastify({
     duration: 1000,
