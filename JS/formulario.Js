@@ -10,16 +10,16 @@ function validarFormularioFormulario(e) {
   const mensaje = document.getElementById("mensaje").value.trim();
 
   if (mensaje === "") {
-    mostrarAlert("Por favor, introduce tu mensaje.", "error");
+    mostrarAlert("Por favor, introduce tu mensaje.", "error", document.getElementById("alerta"));
     return;
   }
 
   if (!/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail)) {
-    mostrarAlert("Por favor, introduce un correo electrónico válido.", "error");
+    mostrarAlert("Por favor, introduce un correo electrónico válido.", "error", document.getElementById("alerta"));
     return;
   }
 
-  mostrarAlert("Gracias por tu consulta, la responderemos a la brevedad.", "success");
+  mostrarAlert("Gracias por tu consulta, la responderemos a la brevedad.", "success", document.getElementById("alerta"));
 
 }
 
