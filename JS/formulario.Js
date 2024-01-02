@@ -20,12 +20,12 @@ function validarFormularioFormulario(e) {
   }
 
   mostrarAlert("Gracias por tu consulta, la responderemos a la brevedad.", "success", document.getElementById("alerta"));
-
+  formulario.reset();
 }
 
 function mostrarAlert(mensaje, tipo) {
   Toastify({
-    duration: 1000,
+    duration: 3000,
     text: mensaje,
     className: tipo,
     style: {
